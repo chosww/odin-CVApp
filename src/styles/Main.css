@@ -1,0 +1,16 @@
+.cv-header {
+    background-color: #A7ACC6;
+    text-align: center;
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.cv-education-header {
+    background-color: #A7ACC6;
+    margin: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+}

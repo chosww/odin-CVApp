@@ -1,0 +1,22 @@
+html, body, #root {
+    margin: 0px;
+    height: 100%;
+}
+
+div {
+    border: 1px solid black;
+}
+
+#root {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+}
+
+.sidebar {
+    grid-column: 1 / 2;
+}
+
+.mainCV {
+    grid-column: 2 / 3;
+}
+
