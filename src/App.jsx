@@ -13,15 +13,49 @@ function App() {
   const [address, setAddress] = useState("");
   const [educations, setEducations] = useState([]);
 
+  const [schoolName, setSchoolName] = useState('');
+  const [studyTitle, setStudyTitle] = useState('');
+  const [experience, setExperience] = useState('');
+
+  
+  function handleAddEducation(e) {
+    e.preventDefault();
+    setEducations([... educations, <Education schoolName={schoolName} studyTitle={studyTitle} experience={experience} />]);
+  }
+
+  function handleTextFieldChange(e) {
+    switch(e.target.id) {
+      case ('school_name'):
+        setSchoolName(e.target.value);
+        break;
+      case ('study_title'):
+        setStudyTitle(e.target.value);
+        break;
+      case ('experience'):
+        setExperience(e.target.value);
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
     <>
       <div className="sidebar">
         <General name={name} setName={setName} email={email} setEmail={setEmail} phone={phone} setPhone={setPhone} address={address} setAddress={setAddress}/>
-        <Education education={educations} setEducation={setEducations}/>
+        <form onSubmit={handleAddEducation}>
+          <label htmlFor='school_name'>School Name</label>
+          <input id='school_name' name='school_name' type='text' value={schoolName} onChange={handleTextFieldChange}/>
+          <label htmlFor='study_title'>Study Title</label>
+          <input id='study_title' name='study_title' type='text' value={studyTitle} onChange={handleTextFieldChange} />
+          <label htmlFor='experience'>Experience</label>
+          <input id='experience' name='experience' type='text' value={experience} onChange={handleTextFieldChange} />
+          <button>Create Education</button>
+        </form>
         <Experience />
       </div>
       <div className="mainCV">
-        <Main name={name} email={email} phone={phone} address={address}/>
+        <Main name={name} email={email} phone={phone} address={address} educations={educations}/>
       </div>
     </>
   )

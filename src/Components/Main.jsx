@@ -3,7 +3,8 @@ import EmailIcon from '@mui/icons-material/Email';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import HomeIcon from '@mui/icons-material/Home';
 
-function Main({ name, email, phone, address }) {
+function Main({ name, email, phone, address, educations }) {
+    console.log(educations);
 
     return (
         <>
@@ -17,7 +18,7 @@ function Main({ name, email, phone, address }) {
                 Education
             </div>
             <div className="cv-education">
-                
+                {educations.map(education => <div>{education}</div>)}
             </div>
         </>
     )
